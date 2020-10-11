@@ -1,6 +1,6 @@
 export var test = function() {
     var nest_config = []
-    fetch('config.json').then(r => r.json()).then(conf => nest_config = conf.wasps);
+    fetch('config.json').then(r => r.json()).then(conf => nest_config = conf.wasps)
 
     var test_results = {
         tests: 0,
@@ -28,7 +28,7 @@ export var test = function() {
             test_results.assertions++
 
             if (!wasp_element.innerText.toLowerCase().includes(wasp_name)) {
-                success = false;
+                success = false
                 test_results.errors.push(`failed to assert text ${wasp_name} was present in element ${wasp_element.innerHTML}`)
             }
         }
@@ -52,7 +52,7 @@ export var test = function() {
             test_results.assertions++
 
             if (!wasp_element.innerText.includes(wasp_config.hp)) {
-                success = false;
+                success = false
                 test_results.errors.push(`failed to assert text ${wasp_config.hp} was present in element ${wasp_element.innerHTML}`)
             }
         }
@@ -83,7 +83,7 @@ export var test = function() {
             dead_wasps = document.querySelectorAll('.dead').length
             setTimeout(function timer() {
                 document.getElementById('strike').click()
-            }, i * 350);
+            }, i * 350)
         }
     }
 
@@ -91,7 +91,7 @@ export var test = function() {
         if (document.getElementById('winner') != null) {
             success = true
         }
-    }, 2000);
+    }, 2000)
 
     if (success) {
         test_results.pass++
