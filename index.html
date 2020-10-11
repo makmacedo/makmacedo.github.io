@@ -144,6 +144,7 @@
         return nest.filter(wasp => wasp.hp > 0)
     }
 
+    // display win message
     function winGame() {
         document.getElementById('strike').disabled = true
 
@@ -155,6 +156,7 @@
         }
     }
 
+    // update score and score element
     function setScore(newScore) {
         if (document.contains(document.getElementById('score'))) {
             document.getElementById('score').innerHTML = newScore
