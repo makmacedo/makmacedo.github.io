@@ -1,1 +1,176 @@
-<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel=stylesheet><link rel=icon href=/favicon.ico><link rel=stylesheet href=/tailwind.css><title>Units Conversion Stand-Alone</title><link href=/css/app.fd2a0b28.css rel=preload as=style><link href=/js/app.6d45e750.js rel=preload as=script><link href=/js/chunk-vendors.9e33132e.js rel=preload as=script><link href=/css/app.fd2a0b28.css rel=stylesheet></head><body><noscript><strong>We're sorry but this page doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id=app></div><script src=/js/chunk-vendors.9e33132e.js></script><script src=/js/app.6d45e750.js></script></body></html>
+<html lang="en">
+    <head>
+        <title>Wasps Game</title>
+        <link rel="stylesheet" href="./assets/style.css">
+    </head>
+    <body id="app">
+        <div class="controlls">
+            <button id="start" onclick="startNewGame()">New Game</button>
+            <button id="strike" onclick="playRound()" hidden disabled>Strike</button>
+        </div>
+        <div id="nest"></div>
+        <h1 id="banner">Wasps Game</h1>
+    </body>
+</html>
+<script type="module">
+    import { test } from './test.js'    
+    // add run tests button to the page
+    var button = document.createElement('button')
+    button.innerHTML = 'run tests'
+    button.id = 'test'
+    button.addEventListener("click", test)
+    document.body.appendChild(button)
+</script>
+<script>
+    var score = 0
+    var hits = 0
+    var nest = []
+    var nest_config = []
+    // load game settings from config.json file
+    fetch('config.json').then(r => r.json()).then(conf => nest_config = conf.wasps)
+
+    function startNewGame() {
+        // calculate the maximum hits needed to kill all wasps
+        let max_score = 0
+        nest_config.forEach(w => max_score += Math.ceil(w.hp / w.damage) * w.quantity)
+        score = max_score
+        hits = 0
+        setScore(score)
+        setGameControls()
+        setNest()
+        removeIfExists('winner')
+        removeIfExists('banner')
+        renderNest()
+    }
+
+    function setGameControls() {
+        let strike = document.getElementById('strike')
+        strike.hidden = false
+        strike.disabled = false
+    }
+    
+    function setNest() {
+        nest = []
+        nest_config.forEach(wasp_config => {
+            for (let i = 0; i < wasp_config.quantity; i++) { 
+                nest.push({
+                    id: `${wasp_config.type}_${i+ 1}`,
+                    type: wasp_config.type,
+                    initial_hp: wasp_config.hp,
+                    hp: wasp_config.hp,
+                    damage: wasp_config.damage,
+                })
+            }
+        })
+    }
+
+    function renderNest() {
+        // remove any wasps from last game round
+        document.querySelectorAll('.wasp').forEach(wasp => wasp.remove())
+        // re-render updated game round
+        nest.forEach(wasp => createWaspElement(wasp))
+    }
+
+    function createWaspElement(wasp) {
+        // update redered nest state
+        let waspEl = document.createElement("div")
+        waspEl.id = wasp.id
+        waspEl.className = wasp.type
+        waspEl.classList.add('wasp', wasp.type)
+        if (wasp.hp == 0) waspEl.classList.add('dead')
+
+        // heath-bar
+        let hpBox = document.createElement("div")
+        hpBox.className = 'hp'
+        let hpStat = document.createElement("span")
+        let points =  Math.round(wasp.hp / wasp.initial_hp * 10) * 10
+        hpStat.className = `hp_${wasp.hp > 0 && points == 0 ? 10 : points}`
+
+        // wasp image
+        let image = document.createElement("img")
+        image.src = wasp.hp == 0 ? `/assets/dead_wasp_${wasp.type}.png` : `/assets/wasp_${wasp.type}.gif`
+
+        // wasp name
+        let waspName = document.createElement('p')
+        waspName.innerHTML = `${getWaspName(wasp)} <br><small>(${wasp.hp}/${wasp.initial_hp})</small>`
+
+        hpBox.appendChild(hpStat)
+        waspEl.appendChild(waspName)
+        waspEl.appendChild(hpBox)
+        waspEl.appendChild(image)
+
+        document.getElementById('nest').appendChild(waspEl)
+    }
+
+    function playRound() {
+        if (getLivingWasps().length > 0) {
+            let randomWasp = getRandomWasp() 
+
+            highlightSelectedWasp(randomWasp)
+            // deliver damage
+            randomWasp.hp -= randomWasp.damage
+            // assure there is no negative hp
+            if (randomWasp.hp < 0) randomWasp.hp = 0
+            // if you kill the queen you kill all wasps
+            if (randomWasp.type === 'queen' && randomWasp.hp == 0) nest.forEach(wasp => wasp.hp = 0)
+            // update wasp state in the nest
+            nest[nest.findIndex(wasp => wasp.id == randomWasp.id)] = randomWasp
+            // update score
+            setScore(score - ++hits)
+            // re-render nets state
+            setTimeout(() => renderNest(), 400)
+        }
+
+        // if at this point there's no more living wasps the game ends!
+        if (getLivingWasps().length == 0) {
+            setTimeout(() => winGame(), 300)
+        }
+    }
+
+    function highlightSelectedWasp(wasp) {
+        document.getElementById(`${wasp.id}`).classList.add('selected')
+    }
+
+    function getWaspName(wasp) {
+        return wasp.type === 'queen' ? 'queen' : wasp.id.replace("_", " ")
+    }
+
+    function getRandomWasp() {
+        let livingWasps = getLivingWasps()
+        return livingWasps[Math.floor(Math.random() * livingWasps.length)]
+    }
+
+    function getLivingWasps() {
+        return nest.filter(wasp => wasp.hp > 0)
+    }
+
+    function winGame() {
+        document.getElementById('strike').disabled = true
+
+        if (document.getElementById('winner') == null) {
+            winEl = document.createElement("h2")
+            winEl.id = 'winner'
+            winEl.innerHTML = '<h2>...bbsssssss</h2> your the winner! <button onclick="startNewGame()" >Play again</button>'
+            document.body.appendChild(winEl)
+        }
+    }
+
+    function setScore(newScore) {
+        if (document.contains(document.getElementById('score'))) {
+            document.getElementById('score').innerHTML = newScore
+            console.log('updating score')
+        } else {
+            console.log('creating score')
+            let scoreEl = document.createElement('h2')
+            scoreEl.id = 'score'
+            scoreEl.innerHTML = newScore
+            document.querySelector('.controlls').appendChild(scoreEl)
+        }
+    }
+
+    function removeIfExists(elementId) {
+        if (document.contains(document.getElementById(elementId))) {
+            document.getElementById(elementId).remove()
+        }
+    }
+</script>
