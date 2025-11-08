@@ -92,7 +92,7 @@ const arcadio = {
 - **BOMcheck/EC4P Enhancement** - Modernizing environmental compliance platforms
 - **Modern Tech Integration** - SSO, Cashier with Stripe, Laravel Nova, Vue/Vite/PrimeVue implementations
 - **[Portfolio-OS](https://macedo.tech)** - Web-based OS simulator with authentication and persistent browser storage
-- **Portfolio Website** - This very site you're looking at! Built with vanilla HTML/JS
+- **[Portfolio Page](https://makmacedo.github.io/)** - This very site you're looking at! Built with vanilla HTML/JS
 - **Home Lab Projects** - Docker, Synology NAS, Raspberry Pi automation
 
 ## 💼 Professional Highlights
