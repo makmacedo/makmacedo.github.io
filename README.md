@@ -21,7 +21,7 @@
 
 <div align="center" style="margin: 40px 0;">
   <p style="font-size: 1.1em; line-height: 1.6; max-width: 800px; margin: 0 auto; color: #4A5568;">
-    💡 <strong>Portuguese</strong> 🇵🇹 <strong>husband and father of two</strong>, UK-based Engineering Managerer working in the British tech scene since <strong>2018</strong>. <strong>Dog lover</strong> 🐕, <strong>motorcycle rider</strong> 🏍️, <strong>Laravel advocate</strong>, and <strong>tech enthusiast</strong> who specializes in <strong>environmental compliance SaaS</strong>. I work with <strong>Product Life Cycle</strong>, <strong>Circular Economy</strong>, <strong>EPR metrics</strong>, and <strong>ESG implementations</strong> while leading teams to modernize legacy systems and mentoring developers, with a passion for <strong>clean architecture</strong> and building scalable solutions that make a real impact.
+    💡 <strong>Portuguese</strong> 🇵🇹 <strong>husband and father of two</strong>, UK-based Engineering Manager working in the British tech scene since <strong>2018</strong>. <strong>Dog lover</strong> 🐕, <strong>motorcycle rider</strong> 🏍️, <strong>Laravel advocate</strong>, and <strong>tech enthusiast</strong> who specializes in <strong>environmental compliance SaaS</strong>. I work with <strong>Product Life Cycle</strong>, <strong>Circular Economy</strong>, <strong>EPR metrics</strong>, and <strong>ESG implementations</strong> while leading teams to modernize legacy systems and mentoring developers, with a passion for <strong>clean architecture</strong> and building scalable solutions that make a real impact.
   </p>
 </div>
 
