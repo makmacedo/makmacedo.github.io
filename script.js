@@ -272,18 +272,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentYear = new Date().getFullYear();
     document.getElementById('currentYear').textContent = currentYear;
 
-    // Calculate years of experience at Sphera (since Oct 2018)
+    // Calculate years of experience at Sphera (since November 2018)
     function calculateSphereYears() {
-        const startDate = new Date(2018, 9); // October 2018 (month is 0-indexed)
+        const startDate = new Date(2018, 10); // November 2018 (month is 0-indexed)
         const currentDate = new Date();
         const diffTime = Math.abs(currentDate - startDate);
         const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
         return diffYears;
     }
 
-    // Calculate years in UK (since 2018, same as Sphera start)
+    // Calculate years in UK (since August 2018)
     function calculateUKYears() {
-        const startDate = new Date(2018, 0); // January 2018 (approximate UK move)
+        const startDate = new Date(2018, 7); // August 2018
         const currentDate = new Date();
         const diffTime = Math.abs(currentDate - startDate);
         const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));

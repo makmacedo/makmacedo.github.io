@@ -7,7 +7,7 @@
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=todoist&logoColor=white)](https://makmacedo.github.io/portfolio) [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/arcadio-macedo/) [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/makmacedo)
 
-<h3 style="color: #6366F1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 600; margin: 30px 0 20px 0;">🚀 Engineering Lead @ <a href="https://www.linkedin.com/company/sphera/" target="_blank" style="color: #6366F1; text-decoration: underline;">Sphera</a></h3>
+<h3 style="color: #6366F1; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 600; margin: 30px 0 20px 0;">🚀 Engineering Manager @ <a href="https://www.linkedin.com/company/sphera/" target="_blank" style="color: #6366F1; text-decoration: underline;">Sphera</a></h3>
 
 </div>
 
@@ -21,7 +21,7 @@
 
 <div align="center" style="margin: 40px 0;">
   <p style="font-size: 1.1em; line-height: 1.6; max-width: 800px; margin: 0 auto; color: #4A5568;">
-    💡 <strong>Portuguese</strong> 🇵🇹 <strong>husband and father of two</strong>, UK-based Engineering Leader with <strong>7 years</strong> in the British tech scene. <strong>Dog lover</strong> 🐕, <strong>motorcycle rider</strong> 🏍️, <strong>Laravel advocate</strong>, and <strong>tech enthusiast</strong> who specializes in <strong>environmental compliance SaaS</strong>. I work with <strong>Product Life Cycle</strong>, <strong>Circular Economy</strong>, <strong>EPR metrics</strong>, and <strong>ESG implementations</strong> while leading teams to modernize legacy systems and mentoring developers, with a passion for <strong>clean architecture</strong> and building scalable solutions that make a real impact.
+    💡 <strong>Portuguese</strong> 🇵🇹 <strong>husband and father of two</strong>, UK-based Engineering Managerer working in the British tech scene since <strong>2018</strong>. <strong>Dog lover</strong> 🐕, <strong>motorcycle rider</strong> 🏍️, <strong>Laravel advocate</strong>, and <strong>tech enthusiast</strong> who specializes in <strong>environmental compliance SaaS</strong>. I work with <strong>Product Life Cycle</strong>, <strong>Circular Economy</strong>, <strong>EPR metrics</strong>, and <strong>ESG implementations</strong> while leading teams to modernize legacy systems and mentoring developers, with a passion for <strong>clean architecture</strong> and building scalable solutions that make a real impact.
   </p>
 </div>
 
@@ -34,8 +34,8 @@ const arcadio = {
   location: "United Kingdom 🇬🇧",
   origin: "Portugal 🇵🇹", 
   previousLocation: "Brazil 🇧🇷 (11 years)",
-  yearsInUK: 7,
-  currentRole: "Engineering Lead @ Sphera",
+  ukSince: 2018,
+  currentRole: "Engineering Manager @ Sphera",
   focus: ["Environmental Compliance SaaS", "Legacy Modernization", "Team Leadership"],
   dailyDrivers: ["Laravel", "Vue.js", "TailwindCSS", "MySQL", "Redis"],
   currentProjects: ["BOMcheck", "EC4P", "SSO Integration"],
@@ -50,9 +50,9 @@ const arcadio = {
 
 ## 🚀 Current Focus
 
-**Engineering Lead at Sphera** working on environmental compliance tools:
+**Engineering Manager at Sphera** working on environmental compliance tools:
 - 🏗️ Leading development of **BOMcheck** and **EC4P** platforms
-- 🔄 Modernizing legacy Laravel applications 
+- 🔄 Modernising legacy PHP applications with Laravel
 - 🧑‍ Mentoring junior and mid-level developers
 - 📋 Experience with **ECHA** and **IPC standards** compliance
 - ☁️ Experience with **DigitalOcean** and **AWS** infrastructure
@@ -147,3 +147,8 @@ I'm always open to interesting conversations about:
 ⭐ **Thanks for stopping by!** Feel free to explore my repositories and don't hesitate to reach out.
 
 </div>
+
+
+## Current CV
+
+The approved October 2026 CV is available at [assets/Arcadio_Macedo_CV.pdf](assets/Arcadio_Macedo_CV.pdf). The website combines hands-on PHP engineering with leadership of eight direct reports across two multidisciplinary squads.
